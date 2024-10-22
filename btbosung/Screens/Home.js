@@ -5,11 +5,14 @@ import {
   View,
   Image,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import { Card } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+export default function App({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -24,10 +27,9 @@ export default function App() {
         <Text style={styles.shopName}>SHOP</Text>
       </View>
       <TouchableOpacity
+        onPress={() => navigation.navigate('ProductList')}
         style={styles.viewGetStart}>
-        <Text style={styles.getStart}>
-          Get Started
-        </Text>
+        <Text style={styles.getStart}>Get Started</Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,27 +57,26 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   img: { width: '70%', height: 200 },
-  viewShopName:{
-    justifyContent:'center',
-    alignItems:'center'
+  viewShopName: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  shopName:{
-    fontSize:25,
-    fontWeight:'bold'
+  shopName: {
+    fontSize: 25,
+    fontWeight: 'bold',
   },
-  viewGetStart:{
-    marginHorizontal:40,
-    marginTop:30,
-    backgroundColor:'#E94141',
-    height:50,
-    alignItems:'center',
-    justifyContent:'center',
-    borderRadius:30
+  viewGetStart: {
+    marginHorizontal: 40,
+    marginTop: 30,
+    backgroundColor: '#E94141',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 30,
   },
-  getStart:{
-    fontWeight:'bold',
-    fontSize:20,
-    color:'#FEFEFE',
+  getStart: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#FEFEFE',
   },
-
 });
